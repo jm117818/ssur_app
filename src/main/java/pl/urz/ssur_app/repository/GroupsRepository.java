@@ -3,15 +3,16 @@ package pl.urz.ssur_app.repository;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import pl.urz.ssur_app.model.User;
+import pl.urz.ssur_app.model.Groups;
 
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 @Repository
-public interface UserRepository {
-    List<User> getAll();
+public interface GroupsRepository {
 
-    Optional<User> findOneByEmail(@Param("email") String email);
+    List<Groups> getAll();
+
+    Optional<Groups> findOneByName (@Param("name") String name);
 }

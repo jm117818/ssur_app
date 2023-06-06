@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="pl.urz.ssur_app.repository.UserRepository">
-    <resultMap id="users" type="pl.urz.ssur_app.model.User">
+<mapper namespace="pl.urz.ssur_app.repository.UsersRepository">
+    <resultMap id="USERS" type="pl.urz.ssur_app.model.Users">
         <result column="USR_ID" jdbcType="DECIMAL" property="id"/>
         <result column="USR_FIRSTNAME" jdbcType="VARCHAR" property="firstname"/>
         <result column="USR_LASTNAME" jdbcType="VARCHAR" property="lastname"/>
         <result column="USR_EMAIL" jdbcType="VARCHAR" property="email"/>
         <result column="USR_PASSWORD" jdbcType="VARCHAR" property="password"/>
-        <result column="USR_GRP_ID" jdbcType="DECIMAL" property="grpId"/>
-        <result column="USR_ROLE_ID" jdbcType="DECIMAL" property="roleId"/>
     </resultMap>
 
     <sql id="allColumns">
@@ -16,21 +14,19 @@
         USR_FIRSTNAME,
         USR_LASTNAME,
         USR_EMAIL,
-        USR_PASSWORD,
-        USR_GRP_ID,
-        USR_ROLE_ID
+        USR_PASSWORD
     </sql>
 
-    <select id="getAll" resultMap="users">
+    <select id="getAll" resultMap="USERS">
         SELECT
         <include refid="allColumns"/>
-        FROM USERS
+        FROM users
     </select>
 
-    <select id="findOneByEmail" resultMap="users">
+    <select id="findOneByEmail" resultMap="USERS">
         SELECT
         <include refid="allColumns"/>
-        FROM USERS
+        FROM users
         <where>
             USR_EMAIL = #{email}
         </where>

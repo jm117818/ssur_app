@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pl.urz.ssur_app.repository.GroupsRepository">
+    <resultMap id="GROUPS" type="pl.urz.ssur_app.model.Groups">
+        <result column="GRP_ID" jdbcType="DECIMAL" property="id"/>
+        <result column="GRP_NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="GRP_UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="allColumns">
+        GRP_ID,
+        GRP_NAME,
+        GRP_UPDATE_TIME
+    </sql>
+
+    <select id="getAll" resultMap="GROUPS">
+        SELECT
+        <include refid="allColumns"/>
+        FROM `groups`
+    </select>
+
+    <select id="findOneByName" resultMap="GROUPS">
+        SELECT
+        <include refid="allColumns"/>
+        FROM `groups`
+        <where>
+            GRP_NAME = #{name}
+        </where>
+    </select>
+</mapper>
