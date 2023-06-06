@@ -1,0 +1,21 @@
+jwt:
+  secret: SECRET_KEY
+logging:
+  level:
+    root: info
+    pl.urz: debug
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+
+spring:
+  application:
+    name: ssur_app
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/ssur_mysql'
+    username: root
+    password: qwerty123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  autoconfigure:
+    exclude:
+      org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+mybatis:
+  mapperLocations: /mappers/*.xml
