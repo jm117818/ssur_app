@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserGroups {
+public class UserGroup {
     private Integer usrId;
     private Integer grpId;
 }

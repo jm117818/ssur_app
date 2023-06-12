@@ -27,4 +27,17 @@
             GRP_NAME = #{name}
         </where>
     </select>
+
+    <select id="getNamesByUsrId" resultMap="GROUPS">
+        SELECT
+            g.*
+        FROM
+            `groups` g,
+            user_groups ug
+        WHERE
+            ug.usr_id = #{id}
+        AND g.grp_id = ug.grp_id
+    </select>
+
+
 </mapper>
