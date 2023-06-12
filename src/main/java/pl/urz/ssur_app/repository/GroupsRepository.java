@@ -15,4 +15,6 @@ public interface GroupsRepository {
     List<Groups> getAll();
 
     Optional<Groups> findOneByName (@Param("name") String name);
+
+    List<Groups> getNamesByUsrId(@Param("id") Integer id);
 }

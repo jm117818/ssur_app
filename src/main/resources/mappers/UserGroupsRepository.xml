@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pl.urz.ssur_app.repository.UserGroupsRepository">
-    <resultMap id="UserGroups" type="pl.urz.ssur_app.model.UserGroups">
+    <resultMap id="UserGroups" type="pl.urz.ssur_app.model.UserGroup">
         <result column="USR_ID" jdbcType="DECIMAL" property="usrId"/>
         <result column="GRP_ID" jdbcType="DECIMAL" property="grpId"/>
     </resultMap>
@@ -23,6 +23,15 @@
         FROM user_groups
         <where>
             GRP_ID = #{id}
+        </where>
+    </select>
+
+    <select id="findAllGrpIdByUserId" resultMap="UserGroups">
+        SELECT
+        <include refid="allColumns"/>
+        FROM user_groups
+        <where>
+            USR_ID = #{id}
         </where>
     </select>
 </mapper>
