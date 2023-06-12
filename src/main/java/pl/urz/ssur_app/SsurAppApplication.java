@@ -22,4 +22,5 @@ public class SsurAppApplication {
         emailSenderService.sendMail("jmazurek.kontakt@gmail.com", "Temat", "Dzięki działa");
     }
 
+
 }
